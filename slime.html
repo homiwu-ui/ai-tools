@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>史萊姆</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  font-family:'Segoe UI',sans-serif;
+  gap:40px;
+  padding:20px
+}
+h1{color:#7ecfff;font-size:28px;text-shadow:0 0 20px #4a9eff66}
+.card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+  backdrop-filter:blur(10px)
+}
+.card h2{color:#b8e4ff;font-size:16px;font-weight:400;opacity:.8}
+.preview-row{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center
+}
+.preview-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px
+}
+.preview-item span{color:rgba(255,255,255,.5);font-size:12px}
+.link-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.link-row a{
+  color:#7ecfff;
+  text-decoration:none;
+  padding:8px 20px;
+  border:1px solid #4a9eff44;
+  border-radius:8px;
+  font-size:14px;
+  transition:.2s
+}
+.link-row a:hover{background:#4a9eff22;border-color:#4a9eff}
+</style>
+</head>
+<body>
+<h1>🧪 史萊姆測試圖</h1>
+<div class="card">
+  <h2>SVG 向量格式</h2>
+  <object data="slime.svg" type="image/svg+xml" width="200" height="200"></object>
+  <div class="link-row">
+    <a href="slime.svg">開啟 SVG</a>
+    <a href="slime.png">開啟 PNG</a>
+  </div>
+</div>
+<div class="card">
+  <h2>PNG 點陣格式 (400×400)</h2>
+  <img src="slime.png" width="200" height="200" alt="slime png">
+</div>
+<div class="card">
+  <h2>CSS Art 史萊姆 (hover 互動)</h2>
+  <div class="css-slime">
+    <div class="blush l"></div>
+    <div class="blush r"></div>
+    <div class="eye l"><div class="pupil"><div class="glint"></div></div></div>
+    <div class="eye r"><div class="pupil"><div class="glint"></div></div></div>
+    <div class="highlight"></div>
+    <div class="drop d1"></div>
+    <div class="drop d2"></div>
+  </div>
+  <style>
+.css-slime{
+  position:relative;
+  width:120px;
+  height:130px;
+  cursor:pointer;
+  transition:.3s
+}
+.css-slime::before{
+  content:'';
+  position:absolute;
+  bottom:-8px;left:50%;
+  transform:translateX(-50%);
+  width:100px;height:12px;
+  background:rgba(0,0,0,.15);
+  border-radius:50%;
+}
+.css-slime::after{
+  content:'';
+  position:absolute;
+  width:100%;height:100%;
+  background:radial-gradient(ellipse at 40% 35%,#7ecfff,#4a9eff 60%,#2a7ad8);
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  transition:.4s;
+}
+.css-slime:hover::after{
+  border-radius:45% 55% 50% 50% / 55% 50% 50% 55%;
+  transform:scale(1.05);
+}
+.css-slime:hover{animation:squish 1s ease-in-out}
+@keyframes squish{
+  0%,100%{transform:scale(1,1)}
+  30%{transform:scale(1.1,0.9)}
+  60%{transform:scale(0.95,1.05)}
+}
+.eye{position:absolute;top:35px;z-index:1}
+.eye.l{left:28px}
+.eye.r{right:28px}
+.pupil{
+  width:18px;height:20px;
+  background:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 0 2px rgba(0,0,0,.1)
+}
+.css-slime:hover .pupil{width:16px;height:18px}
+.pupil::after{
+  content:'';
+  display:block;
+  width:10px;height:11px;
+  background:#1a1a2e;
+  border-radius:50%;
+}
+.css-slime:hover .pupil::after{width:9px;height:10px}
+.glint{
+  position:absolute;
+  top:5px;right:4px;
+  width:4px;height:4px;
+  background:#fff;
+  border-radius:50%;
+}
+.blush{
+  position:absolute;
+  top:62px;z-index:0;
+  width:14px;height:7px;
+  background:rgba(255,138,160,.4);
+  border-radius:50%;
+}
+.blush.l{left:14px}
+.blush.r{right:14px}
+.highlight{
+  position:absolute;
+  top:18px;left:30px;
+  width:28px;height:16px;
+  background:radial-gradient(#b8e4ffcc,transparent 70%);
+  border-radius:50%;
+  z-index:1
+}
+.drop{
+  position:absolute;z-index:2;
+  background:#7ecfff;border-radius:50%;
+  animation:drop 2s infinite
+}
+.drop.d1{width:8px;height:10px;top:6px;left:52px;animation-delay:0s}
+.drop.d2{width:6px;height:8px;top:3px;right:48px;animation-delay:1s}
+@keyframes drop{
+  0%,100%{opacity:1;transform:translateY(0)}
+  50%{opacity:0.4;transform:translateY(6px)}
+}
+  </style>
+</div>
+</body>
+</html>

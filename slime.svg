@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+  <defs>
+    <radialGradient id="bodyGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#7ecfff"/>
+      <stop offset="60%" stop-color="#4a9eff"/>
+      <stop offset="100%" stop-color="#2a7ad8"/>
+    </radialGradient>
+    <radialGradient id="highlight" cx="35%" cy="30%" r="30%">
+      <stop offset="0%" stop-color="#b8e4ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#b8e4ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- shadow -->
+  <ellipse cx="100" cy="175" rx="55" ry="10" fill="#00000020"/>
+
+  <!-- body -->
+  <path d="M60,160
+           C60,120 50,90 65,70
+           C72,58 85,48 100,45
+           C115,48 128,58 135,70
+           C150,90 140,120 140,160
+           Z" fill="url(#bodyGrad)" stroke="#2a7ad8" stroke-width="1.5"/>
+
+  <!-- wavy bottom -->
+  <path d="M60,160
+           Q70,150 80,160
+           Q90,170 100,160
+           Q110,150 120,160
+           Q130,170 140,160"
+        fill="url(#bodyGrad)" stroke="#2a7ad8" stroke-width="1.5"/>
+
+  <!-- highlight -->
+  <ellipse cx="90" cy="75" rx="18" ry="12" fill="url(#highlight)"/>
+
+  <!-- left eye -->
+  <ellipse cx="82" cy="88" rx="10" ry="11" fill="white"/>
+  <ellipse cx="84" cy="87" rx="5.5" ry="6" fill="#1a1a2e"/>
+  <ellipse cx="86" cy="85" rx="2" ry="2" fill="white"/>
+
+  <!-- right eye -->
+  <ellipse cx="112" cy="88" rx="10" ry="11" fill="white"/>
+  <ellipse cx="114" cy="87" rx="5.5" ry="6" fill="#1a1a2e"/>
+  <ellipse cx="116" cy="85" rx="2" ry="2" fill="white"/>
+
+  <!-- blush -->
+  <ellipse cx="72" cy="105" rx="6" ry="3" fill="#ff8aa0" opacity="0.4"/>
+  <ellipse cx="122" cy="105" rx="6" ry="3" fill="#ff8aa0" opacity="0.4"/>
+
+  <!-- small drops -->
+  <ellipse cx="98" cy="52" rx="3" ry="4" fill="#7ecfff" opacity="0.6"/>
+  <ellipse cx="104" cy="48" rx="2" ry="3" fill="#7ecfff" opacity="0.4"/>
+</svg>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小老虎</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:40px;
+  background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+  font-family:'Segoe UI',sans-serif;padding:20px
+}
+h1{color:#ff8c32;font-size:28px;text-shadow:0 0 20px #ff8c3266}
+.card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;padding:30px;display:flex;flex-direction:column;
+  align-items:center;gap:20px;backdrop-filter:blur(10px)
+}
+.card h2{color:#ffb074;font-size:16px;font-weight:400;opacity:.8}
+.preview-row{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;align-items:center}
+.preview-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.preview-item span{color:rgba(255,255,255,.5);font-size:12px}
+.link-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.link-row a{
+  color:#ffb074;text-decoration:none;padding:8px 20px;
+  border:1px solid #ff8c3244;border-radius:8px;font-size:14px;transition:.2s
+}
+.link-row a:hover{background:#ff8c3222;border-color:#ff8c32}
+</style>
+</head>
+<body>
+<h1>🐯 小老虎測試圖</h1>
+<div class="card">
+  <h2>PNG 點陣圖 (500×500)</h2>
+  <img src="tiger_icon.png" width="250" height="250" alt="tiger png">
+  <div class="link-row">
+    <a href="tiger_icon.png">開啟 PNG</a>
+  </div>
+</div>
+</body>
+</html>
