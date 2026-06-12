@@ -1,0 +1,9 @@
+# Playwright MCP screenshots
+.playwright-mcp/
+
+# Temp project directories
+mcp-image-gen/
+
+# OS files
+Thumbs.db
+.DS_Store
