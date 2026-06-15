@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenCode Quota Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="crt-overlay"></div>
+
+  <header class="top-bar">
+    <div class="logo">
+      <span class="pixel-icon">◈</span>
+      <h1>OpenCode Quota Dashboard</h1>
+    </div>
+    <div class="meta">
+      <span id="source-badge" class="badge">載入中…</span>
+      <span id="updated-at" class="time">--:--:--</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="mascot">
+        <div class="sprite" id="mascot-sprite">
+          <div class="eyes">
+            <div class="eye"><div class="pupil"></div></div>
+            <div class="eye"><div class="pupil"></div></div>
+          </div>
+          <div class="mouth"></div>
+        </div>
+        <div class="speech-bubble" id="mascot-msg">額度健康狀態：計算中…</div>
+      </div>
+      <div class="summary" id="summary">
+        <div class="stat">
+          <span class="stat-value" id="total-windows">-</span>
+          <span class="stat-label">監控窗口</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="danger-count">-</span>
+          <span class="stat-label">告急</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="avg-remaining">-</span>
+          <span class="stat-label">平均剩餘</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="refresh-btn" class="pixel-btn">↻ 立即更新</button>
+      <button id="mock-btn" class="pixel-btn secondary">🎭 切換 Demo 資料</button>
+      <label class="auto-refresh">
+        <input type="checkbox" id="auto-refresh" checked />
+        <span>每 5 秒自動更新</span>
+      </label>
+    </section>
+
+    <section id="cards" class="cards">
+      <!-- cards injected by JS -->
+    </section>
+
+    <section id="setup-note" class="setup-note hidden">
+      <h2>🔧 還沒有真實額度資料？</h2>
+      <p>目前顯示的是 Demo 資料。若要監控 OpenCode Go，請先設定：</p>
+      <pre><code># PowerShell
+$env:OPENCODE_GO_WORKSPACE_ID = "你的 Workspace ID"
+$env:OPENCODE_GO_AUTH_COOKIE  = "你的 auth cookie"
+
+# 然後重開 server
+node server.js</code></pre>
+      <p>取得方式：登入 <a href="https://opencode.ai" target="_blank">opencode.ai</a> → 開 DevTools → Application → Cookies → 複製 <code>auth</code> 值與 URL 中的 workspace ID。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>MVP for OpenCode quota visualization · AgentMove-style experiment</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
