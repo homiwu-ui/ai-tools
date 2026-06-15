@@ -4,6 +4,16 @@
 # Temp project directories
 mcp-image-gen/
 
+# Pollinations API key in local config
+opencode.json
+
+# Temp project directories
+open-design/
+open-design-setup.exe
+
+# Node modules
+node_modules/
+
 # OS files
 Thumbs.db
 .DS_Store
