@@ -201,11 +201,13 @@ function parseQuotaText(text) {
     }
 
     // Window header line: "5h window                              3h"
-    const headerMatch = line.match(/^(.+?)\s+(?:window|plan|tier)\s+(?:\s{2,}|\t)+(\S.*)$/i);
+    // or "5h window" with no trailing value (value on progress line)
+    let headerMatch = line.match(/^(.+?)\s+(?:window|plan|tier)\s+(?:\s{2,}|\t)+(\S.*)$/i);
+    if (!headerMatch) headerMatch = line.match(/^(.+?)\s+(?:window|plan|tier)$/i);
     if (!headerMatch) continue;
 
     const window = headerMatch[1].trim();
-    const value = headerMatch[2].trim();
+    let value = headerMatch[2] ? headerMatch[2].trim() : '';
 
     // Look ahead for the percentage / progress line.
     const pctLine = rawLines[i + 1] || '';
@@ -231,7 +233,7 @@ function parseQuotaText(text) {
 
     entries.push({
       provider: currentProvider,
-      window,
+      window: window.replace(/^(\d+h)$/, 'rolling ($1)'),
       percentUsed,
       percentRemaining,
       used: value,
